@@ -2,7 +2,7 @@
 
 This Python script processes SMILES (Simplified Molecular Input Line Entry System) strings to extract molecular features using the Morgan descriptor. It is designed for cheminformatics applications, particularly in preparing molecular datasets for machine learning and data analysis tasks.
 
-## Features
+## Module properties
 
 - **Molecular Feature Extraction**: Extracts features from SMILES strings using the Morgan descriptor method.
 - **Normalization Options**: Supports various normalization techniques, including cumulative distribution function, min-max scaling, and standard scaling.
@@ -27,7 +27,7 @@ To get started with this script, clone the repository and install the required d
 git clone https://github.com/HamidHadipour/RDkit_features.git
 cd RDkit_features
 pip install -r requirements.txt
-
+```
 ## Example Commands
 Processing a dataset with Min-Max normalization and not filling NaN values:
 ```bash
