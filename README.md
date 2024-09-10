@@ -36,6 +36,8 @@ python extract_rdkit_features.py --input data.csv --output_type csv --output_fil
 
 ## Output
 The script will output a file containing the processed features derived from the SMILES strings, in either CSV or Parquet format, as specified.
+## Acknowledgements
+This implementation is inspired and partially based on earlier work https://github.com/bp-kelley/descriptastorus/blob/master/descriptastorus/descriptors/DescriptorGenerator.py
 
 ## Contributing
 Contributions are welcome. Please fork the repository, make your changes, and submit a pull request.
