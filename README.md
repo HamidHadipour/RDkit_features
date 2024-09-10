@@ -34,8 +34,8 @@ git clone https://github.com/HamidHadipour/RDkit_features.git
 cd RDkit_features
 pip install -r requirements.txt
 ```
-## Usage
-# Command-Line Arguments
+# Usage
+## Command-Line Arguments
 The script can be configured via the following command-line arguments:
 
 - --input (required): Path to the CSV input file containing the SMILES column.
