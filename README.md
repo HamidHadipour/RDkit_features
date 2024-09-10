@@ -7,9 +7,11 @@ Normalization: Support for different normalization techniques to scale the featu
 Missing Value Management: Options to handle missing values by either filling them with the column mean or leaving them as is.
 Flexible Output Formats: Save the processed data in either CSV or Parquet format.
 Requirements<br>
-** Python 3.6 or higher
-** Pandas
-** NumPy
-** scikit-learn
-** descriptastorus
-** Installation
+<li>
+Python 3.6 or higher
+Pandas
+NumPy
+scikit-learn
+descriptastorus
+Installation
+</li>
