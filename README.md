@@ -1,4 +1,10 @@
 # SMILES Feature Extraction
+<div align="left">
+
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1kfeesfUem4vii3Mh-6H6Cobmy5RKI_uV?usp=sharing)
+
+</div>
 
 This Python script processes SMILES (Simplified Molecular Input Line Entry System) strings to extract molecular features using the Morgan descriptor. It is designed for cheminformatics applications, particularly in preparing molecular datasets for machine learning and data analysis tasks.
 
