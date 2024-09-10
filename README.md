@@ -24,6 +24,19 @@ The script requires the following environment and libraries:
 To get started with this script, clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/yourusername/smiles-feature-extraction.git
-cd smiles-feature-extraction
+git clone https://github.com/HamidHadipour/RDkit_features.git
+cd RDkit_features
 pip install -r requirements.txt
+
+## Example Commands
+Processing a dataset with Min-Max normalization and not filling NaN values:
+```bash
+python extract_rdkit_features.py --input data.csv --output_type csv --output_file smiles_features --normalization minmax --fill_nan True
+```
+
+## Output
+The script will output a file containing the processed features derived from the SMILES strings, in either CSV or Parquet format, as specified.
+
+## Contributing
+Contributions are welcome. Please fork the repository, make your changes, and submit a pull request.
+
