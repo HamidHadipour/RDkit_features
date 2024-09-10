@@ -34,12 +34,22 @@ git clone https://github.com/HamidHadipour/RDkit_features.git
 cd RDkit_features
 pip install -r requirements.txt
 ```
+## Usage
+# Command-Line Arguments
+The script can be configured via the following command-line arguments:
+
+- --input (required): Path to the CSV input file containing the SMILES column.
+- --output_type (required): Type of the output file (csv or parquet).
+- --output_file (required): Name of the output file to save the processed data.
+- --normalization: Normalization method for the data (False, CDF, minmax, standardscaler). Defaults to False.
+- --fill_nan: Option to fill missing values with the column's mean (True or False). Defaults to False.
+
 ## Example Commands
 Processing a dataset with Min-Max normalization and not filling NaN values:
 ```bash
-python extract_rdkit_features.py --input data.csv --output_type csv --output_file smiles_features --normalization minmax --fill_nan True
+python extract_rdkit_features.py --input test_full.csv --output_type csv --output_file smiles_features --normalization minmax --fill_nan True
 ```
-
+The test_full.csv file is an example you can try to run the code that includes 2954 SMILES that are labelled active/inactive.<br>
 ## Output
 The script will output a file containing the processed features derived from the SMILES strings, in either CSV or Parquet format, as specified.
 ## Acknowledgements
