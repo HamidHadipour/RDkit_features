@@ -1,6 +1,7 @@
 import pandas as pd
+import numpy as np
 from descriptastorus.descriptors.DescriptorGenerator import MakeGenerator
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.preprocessing import MinMaxScaler, StandardScaler,RobustScaler
 import argparse
 import sys
 
@@ -8,10 +9,6 @@ import sys
 generator = MakeGenerator(("RDKit2D",))
 
 def extract_features(smiles):
-    """
-    Function to extract RDKit features from a SMILES string.
-    Returns a list of features or None if the SMILES is invalid.
-    """
     try:
         data = generator.process(smiles)
         if data[0]:  # Check if the SMILES was valid and processed
@@ -22,9 +19,6 @@ def extract_features(smiles):
         return None
 
 def normalize_features(features_df, method):
-    """
-    Normalize features using the specified method.
-    """
     if method == 'CDF':
         return features_df.rank(method='average', pct=True)
     elif method == 'minmax':
@@ -33,23 +27,22 @@ def normalize_features(features_df, method):
     elif method == 'standardscaler':
         scaler = StandardScaler()
         return pd.DataFrame(scaler.fit_transform(features_df), columns=features_df.columns)
+    elif method == 'robustscaler':
+        scaler = RobustScaler()
+        return pd.DataFrame(scaler.fit_transform(features_df), columns=features_df.columns)
     return features_df
 
 def handle_missing_values(features_df, fill_nan):
-    """
-    Handle missing values in the features DataFrame.
-    Inform the user about the presence of NaNs, and decide whether to fill them based on user input.
-    """
-    if features_df.isnull().any().any():  # Check if any NaN values are present
-        print("There are missing (NaN) values in the data.")
+    if features_df.isnull().any().any() or np.isinf(features_df).any().any():  # Check for NaNs or Inf
+        print("There are missing or infinite values in the data.")
+        features_df.replace([np.inf, -np.inf], np.nan, inplace=True)  # Replace inf with NaN
         if fill_nan:
-            print("Filling missing values with the mean of each column...")
-            features_df = features_df.fillna(features_df.mean())
+            print("Filling missing values with the median of each column...")
+            features_df = features_df.fillna(features_df.median())  # Using median to avoid influence of outliers
         else:
             print("Leaving the missing values as they are.")
     else:
         print("There are no missing values in the data.")
-    
     return features_df
 
 def process_smiles_dataframe(input_path, output_type, output_file, normalization, fill_nan):
