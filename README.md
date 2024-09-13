@@ -41,8 +41,8 @@ The script can be configured via the following command-line arguments:
 - --input (required): Path to the CSV input file containing the SMILES column.
 - --output_type (required): Type of the output file (csv or parquet).
 - --output_file (required): Name of the output file to save the processed data.
-- --normalization: Normalization method for the data (False, CDF, minmax, standardscaler). Defaults to False.
-- --fill_nan: Option to fill missing values with the column's mean (True or False). Defaults to False.
+- --normalization: Normalization method for the data (False, CDF, minmax, standardscaler). 
+- --fill_nan: Option to fill missing values with the column's mean (True or False). 
 
 ## Example Commands
 Processing a dataset with Min-Max normalization and not filling NaN values:
